@@ -235,7 +235,7 @@ export default function Home() {
               <a href="mailto:policarpioreysean3@gmail.com">policarpioreysean3@gmail.com</a>
               <a href="https://github.com/Reyseannn" target="_blank" rel="noreferrer"><GithubIcon /> GitHub</a>
               <a href="https://www.linkedin.com/in/reyseanpolicarpio21/" target="_blank" rel="noreferrer"><LinkedInIcon /> LinkedIn</a>
-              <a href="/downloads/Reysean_Policarpio_Resume.pdf" download>Download résumé <ArrowIcon /></a>
+              <a href="/downloads/Reysean_Policarpio_Resume.pdf" download>Download resume<ArrowIcon /></a>
             </div>
           </div>
           <ContactForm />
