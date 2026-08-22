@@ -123,24 +123,81 @@ export default function Home() {
         </div>
 
         <article className="project project-fireflies">
-          <div className="project-copy">
-            <p className="project-index">Completed school project</p>
-            <h3>FireFlies</h3>
-            <p className="project-role">Lead Developer within a student team</p>
-            <p>
-              A creature-collecting web game that turns beginner programming and
-              debugging exercises into dialogue and challenges. I led the team
-              and worked on the HTML, CSS, and JavaScript build.
-            </p>
-            <div className="project-tags" aria-label="Technologies used"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-          </div>
-          <div className="fireflies-gallery" aria-label="FireFlies screenshots">
-            <img className="fireflies-hero" src="/images/fireflies-hero.png" alt="FireFlies game character and menu screen" width={768} height={386} loading="lazy" />
-            <img className="fireflies-world" src="/images/fireflies-world.png" alt="FireFlies bridge and world scene" width={512} height={287} loading="lazy" />
-            <img className="fireflies-map" src="/images/fireflies-map.png" alt="FireFlies RPG map" width={691} height={389} loading="lazy" />
-            <img className="fireflies-debug" src="/images/fireflies-debug.png" alt="FireFlies debugging challenge screen" width={456} height={408} loading="lazy" />
-          </div>
-        </article>
+  <div className="project-copy">
+    <p className="project-index">Completed school project</p>
+
+    <h3>FireFlies</h3>
+
+    <p className="project-role">
+      Lead Developer within a student team
+    </p>
+
+    <p>
+      A creature-collecting web game that turns beginner programming
+      and debugging exercises into dialogue and challenges. I led the
+      team and worked on the HTML, CSS, and JavaScript build.
+    </p>
+
+    <div className="project-tags" aria-label="Technologies used">
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>JavaScript</span>
+    </div>
+
+    <a
+      className="play-game-button"
+      href="https://code-hunt-git-portfolio-playable-demo-reysean.vercel.app/GROUP_1_JAVASCRIPT_FIXED/GROUP%201%20JAVASCRIPT/SystemJAVA/index.html"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Play the game ↗
+    </a>
+  </div>
+
+  <a
+    className="fireflies-gallery"
+    href="https://code-hunt-git-portfolio-playable-demo-reysean.vercel.app/GROUP_1_JAVASCRIPT_FIXED/GROUP%201%20JAVASCRIPT/SystemJAVA/index.html"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Open and play the FireFlies game"
+  >
+    <img
+      className="fireflies-hero"
+      src="/images/fireflies-hero.png"
+      alt="FireFlies game character and menu screen"
+      width={768}
+      height={386}
+      loading="lazy"
+    />
+
+    <img
+      className="fireflies-world"
+      src="/images/fireflies-world.png"
+      alt="FireFlies bridge and world scene"
+      width={512}
+      height={287}
+      loading="lazy"
+    />
+
+    <img
+      className="fireflies-map"
+      src="/images/fireflies-map.png"
+      alt="FireFlies RPG map"
+      width={691}
+      height={389}
+      loading="lazy"
+    />
+
+    <img
+      className="fireflies-debug"
+      src="/images/fireflies-debug.png"
+      alt="FireFlies debugging challenge screen"
+      width={456}
+      height={408}
+      loading="lazy"
+    />
+  </a>
+</article>
 
         <article className="project project-beyond">
           <div className="beyond-gallery" aria-label="Beyond the Lens screenshots">
@@ -157,7 +214,7 @@ export default function Home() {
               creating an account, and viewing profile galleries. I led the
               project and built the app in Java with Android Studio.
             </p>
-            <div className="project-tags" aria-label="Technologies used"><span>Java</span><span>Android Studio</span><span>UI Design</span></div>
+            <div className="project-tags" aria-label="Technologies used"><span>Java</span><span>Android Studio</span><span>UI Design</span> </div>
           </div>
         </article>
 
