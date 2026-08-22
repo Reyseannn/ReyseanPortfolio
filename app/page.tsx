@@ -156,7 +156,7 @@ export default function Home() {
 
   <a
     className="fireflies-gallery"
-    href="https://code-hunt-git-portfolio-playable-demo-reysean.vercel.app/GROUP_1_JAVASCRIPT_FIXED/GROUP%201%20JAVASCRIPT/SystemJAVA/index.html"
+    href="https://code-hunt-git-portfolio-playable-demo-reysean.vercel.app/"
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Open and play the FireFlies game"
