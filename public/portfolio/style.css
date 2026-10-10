@@ -35,7 +35,7 @@ img { max-width: 100%; display: block; }
 .side-status { margin: 0; line-height: 1.8; }
 .side-status span { display: inline-block; width: 7px; height: 7px; margin-right: 7px; border-radius: 50%; background: var(--yellow); }
 .side-socials { display: flex; gap: 14px; border-top: 1px solid var(--line); padding-top: 14px; }
-.main-content { width: min(1020px, calc(100% - 310px)); margin-left: max(280px, calc((100vw - 1020px) / 2 + 238px)); padding: 42px 0 24px; }
+.main-content { width: min(1020px, calc(100vw - 238px)); margin-left: calc(238px + max(0px, (100vw - 238px - 1020px) / 2)); padding: 42px 0 24px; }
 .hero { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 50px; align-items: center; min-height: 390px; padding: 36px 0 62px; border-bottom: 1px solid var(--line); }
 .eyebrow, .section-number, .project-kind, .timeline time { font: 10px/1.6 var(--mono); letter-spacing: .04em; color: var(--purple-soft); }
 .eyebrow { margin: 0 0 20px; }
