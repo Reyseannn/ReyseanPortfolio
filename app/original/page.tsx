@@ -1,4 +1,4 @@
-import ContactForm from "./contact-form";
+import ContactForm from "../contact-form";
 
 /*
 THESIS: A working student portfolio should lead with proof of real work, not inflated claims or a generic developer hero.
