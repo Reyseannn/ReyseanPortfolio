@@ -99,8 +99,8 @@ h2 { margin: 0; font-size: 26px; line-height: 1.25; letter-spacing: -.045em; }
 .recognition p { max-width: 62ch; margin: 8px 0 0; color: #c7bfd0; font-size: 12px; }
 .skill-list { margin-top: 22px; gap: 10px; }
 .skill-list span { padding: 8px 12px; font-size: 10px; }
-.github-activity { display: block; max-width: 760px; overflow: hidden; padding: 13px; background: #f1edf7; border: 1px solid rgba(195, 165, 255, .2); border-radius: 5px; }
-.github-activity img { display: block; width: 100%; height: auto; }
+.github-activity { display: block; max-width: 760px; overflow: hidden; padding: 13px; background: #15101e; border: 1px solid rgba(195, 165, 255, .2); border-radius: 5px; }
+.github-activity img { display: block; width: 100%; height: auto; filter: invert(1) hue-rotate(180deg) brightness(1.15); }
 .github-profile-link { display: inline-flex; gap: 14px; align-items: center; margin-top: 13px; padding-bottom: 4px; border-bottom: 1px solid rgba(240, 212, 90, .5); color: var(--text); font-size: 12px; }
 .github-profile-link span { color: var(--yellow); }
 @media (max-width: 560px) { .github-activity { padding: 8px; } }
