@@ -32,16 +32,15 @@ const projects = [
 ];
 
 const projectList = document.querySelector("#project-list");
-projectList.innerHTML = projects.map((project, index) => {
+projectList.innerHTML = projects.map((project) => {
   const projectLink = project.link
     ? `<a class="project-link" href="${project.link}" target="_blank" rel="noopener noreferrer">View project <span>↗</span></a>`
     : "";
 
   return `
-    <article class="project project-extra wrap reveal">
+    <article class="project project-extra wrap">
       <div class="project-copy">
-        <p class="project-label"><span class="status-dot"></span> PERSONAL / SCHOOL PROJECT</p>
-        <h3>${project.title}<span class="project-number">${String(index + 4).padStart(2, "0")}</span></h3>
+        <h3>${project.title}</h3>
         <p>${project.paragraph}</p>
         ${projectLink}
       </div>
