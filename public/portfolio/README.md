@@ -18,7 +18,7 @@ The email, GitHub, LinkedIn, résumé, profile photo, and project images use det
 
 ## Add a project
 
-1. Copy the picture into the assets folder.
+1. Copy the picture into public/portfolio/assets.
 2. Open script.js and find the PROJECT LIST section.
 3. Copy one project object, paste it at the end of the list, and change the title, image path, and paragraph.
 4. Keep the comma between project objects. The link line is optional; remove it if there is no public page.
@@ -27,7 +27,7 @@ Example:
 
     {
       title: "My project",
-      image: "assets/my-project.jpg",
+      image: "/portfolio/assets/my-project.jpg",
       paragraph: "A short description of what I made and what I worked on.",
       link: "https://example.com"
     }
