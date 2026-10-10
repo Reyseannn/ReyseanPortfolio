@@ -18,41 +18,35 @@ navigation.querySelectorAll("a").forEach((link) => {
   });
 });
 
-// PROJECT LIST
-// Add new projects here. Put the image in public/portfolio/assets and use /portfolio/assets/filename.jpg as its path.
-// Only title, image, and paragraph are needed. Add link only if it has a public page.
+// PROJECT LIST — ADD NEW PROJECTS HERE
+// Add the image to public/portfolio/assets, then use /portfolio/assets/filename.jpg.
+// The link field is optional.
 const projects = [
-  {
-    title: "FireFlies",
-    image: "https://raw.githubusercontent.com/Reyseannn/ReyseanPortfolio/main/public/images/fireflies-hero.png",
-    paragraph: "I led this student team and worked on the HTML, CSS, and JavaScript. It’s a creature-collecting game that teaches programming and debugging through dialogue and challenges.",
-    link: "https://code-hunt-git-portfolio-playable-demo-reysean.vercel.app"
-  },
-  {
-    title: "Beyond the Lens",
-    image: "https://raw.githubusercontent.com/Reyseannn/ReyseanPortfolio/main/public/images/beyond-discover.png",
-    paragraph: "I led this two-month Grade 11 Android project. Users can discover photographers, create an account, and view profile galleries. I built it with Java and Android Studio."
-  },
-  {
-    title: "eTickette",
-    image: "https://raw.githubusercontent.com/Reyseannn/ReyseanPortfolio/main/public/images/etickette-display.webp",
-    paragraph: "I was assistant project leader, coded the first HTML and CSS page, and focused on the kiosk setup. The group project is a smart queue system for STI College Fairview’s Registrar and Cashier."
-  }
+  // Example:
+  // {
+  //   title: "My project",
+  //   image: "/portfolio/assets/my-project.jpg",
+  //   paragraph: "A short description of the project and what I worked on.",
+  //   link: "https://example.com"
+  // }
 ];
 
 const projectList = document.querySelector("#project-list");
-projectList.innerHTML = projects.map((project) => {
+projectList.innerHTML = projects.map((project, index) => {
   const projectLink = project.link
-    ? `<a class="project-card-link" href="${project.link}" target="_blank" rel="noopener noreferrer">View project <span>↗</span></a>`
+    ? `<a class="project-link" href="${project.link}" target="_blank" rel="noopener noreferrer">View project <span>↗</span></a>`
     : "";
 
   return `
-    <article class="project-card">
-      <img class="project-card-image" src="${project.image}" alt="${project.title}" loading="lazy">
-      <div class="project-card-copy">
-        <h3>${project.title}</h3>
+    <article class="project project-extra wrap reveal">
+      <div class="project-copy">
+        <p class="project-label"><span class="status-dot"></span> PERSONAL / SCHOOL PROJECT</p>
+        <h3>${project.title}<span class="project-number">${String(index + 4).padStart(2, "0")}</span></h3>
         <p>${project.paragraph}</p>
         ${projectLink}
+      </div>
+      <div class="project-image extra-project-image">
+        <img src="${project.image}" alt="${project.title}" loading="lazy">
       </div>
     </article>
   `;

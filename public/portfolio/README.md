@@ -10,26 +10,9 @@ Open index.html in a browser. For a local web server, open this folder in VS Cod
 
 Then visit http://localhost:8000.
 
-## Before publishing
+## Add a project\n\n1. Put its picture in `public/portfolio/assets/`.\n2. Open `public/portfolio/script.js` and find `PROJECT LIST — ADD NEW PROJECTS HERE`.\n3. Copy the example project object and replace the title, image path, and paragraph. Keep the image path starting with `/portfolio/assets/`.\n4. Add a `link` only when the project has a public page or source. Save and refresh; the card will appear after the three featured projects.\n\n## Before publishing
 
-- Beyond the Lens and eTickette do not have public project links in the repository, so their cards have no link button.
+- Add a public project/demo/repository URL for Beyond the Lens if one is available.
+- Add a public project/demo/repository URL for eTickette if one is available.
 
 The email, GitHub, LinkedIn, résumé, profile photo, and project images use details and public assets from the existing portfolio repository.
-
-## Add a project
-
-1. Copy the picture into public/portfolio/assets.
-2. Open script.js and find the PROJECT LIST section.
-3. Copy one project object, paste it at the end of the list, and change the title, image path, and paragraph.
-4. Keep the comma between project objects. The link line is optional; remove it if there is no public page.
-
-Example:
-
-    {
-      title: "My project",
-      image: "/portfolio/assets/my-project.jpg",
-      paragraph: "A short description of what I made and what I worked on.",
-      link: "https://example.com"
-    }
-
-If the project has no public page, leave out the link line. Save the file and refresh the browser.

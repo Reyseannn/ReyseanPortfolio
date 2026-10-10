@@ -1,4 +1,1 @@
-Put new project pictures in this folder (public/portfolio/assets).
-
-In script.js, add another project object to the PROJECT LIST section and set its image path like this:
-image: "/portfolio/assets/my-project.jpg"
+Put new project pictures in this folder (`public/portfolio/assets/`).\n\nIn `public/portfolio/script.js`, add a project object under `PROJECT LIST — ADD NEW PROJECTS HERE` and use a path like `/portfolio/assets/my-project.jpg`. The link field is optional.\n
