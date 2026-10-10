@@ -1,6 +1,6 @@
 // Open and close the section menu on small screens.
 const menuButton = document.querySelector(".menu-toggle");
-const navigation = document.querySelector(".nav-links");
+const navigation = document.querySelector(".side-links");
 
 menuButton.addEventListener("click", () => {
   const isOpen = menuButton.getAttribute("aria-expanded") === "true";
@@ -38,34 +38,16 @@ projectList.innerHTML = projects.map((project) => {
     : "";
 
   return `
-    <article class="project project-extra wrap">
+    <article class="project project-extra">
       <div class="project-copy">
         <h3>${project.title}</h3>
         <p>${project.paragraph}</p>
         ${projectLink}
       </div>
-      <div class="project-image extra-project-image">
+      <div class="project-media extra-project-media">
         <img src="${project.image}" alt="${project.title}" loading="lazy">
       </div>
     </article>
   `;
 }).join("");
 
-// Reveal sections as they enter the screen. Older browsers still show everything.
-const revealItems = document.querySelectorAll(".reveal");
-if ("IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  revealItems.forEach((item) => revealObserver.observe(item));
-} else {
-  revealItems.forEach((item) => item.classList.add("visible"));
-}
-
-document.querySelector("#year").textContent = new Date().getFullYear();
