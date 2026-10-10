@@ -19,7 +19,7 @@ navigation.querySelectorAll("a").forEach((link) => {
 });
 
 // PROJECT LIST
-// Add new projects here. Put the image in the assets folder and use its path.
+// Add new projects here. Put the image in public/portfolio/assets and use /portfolio/assets/filename.jpg as its path.
 // Only title, image, and paragraph are needed. Add link only if it has a public page.
 const projects = [
   {
