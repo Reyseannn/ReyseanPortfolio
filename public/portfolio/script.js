@@ -9,6 +9,16 @@ menuButton.addEventListener("click", () => {
   navigation.classList.toggle("open", !isOpen);
 });
 
+// Close the mobile menu with Escape and return keyboard focus to its toggle.
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape" || menuButton.getAttribute("aria-expanded") !== "true") return;
+
+  menuButton.setAttribute("aria-expanded", "false");
+  menuButton.setAttribute("aria-label", "Open navigation");
+  navigation.classList.remove("open");
+  menuButton.focus();
+});
+
 // Close the mobile menu after selecting a section.
 navigation.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
