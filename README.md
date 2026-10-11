@@ -34,3 +34,7 @@ The form sends submissions through FormSubmit to `policarpioreysean3@gmail.com`.
 ## Content notes
 
 Project claims and roles are documented in [PRODUCT.md](PRODUCT.md). Visual rules are documented in [DESIGN.md](DESIGN.md).
+
+## Recent updates
+
+See [CHANGELOG.md](CHANGELOG.md) for dated maintenance notes. The live static portfolio is served from `public/portfolio`.
