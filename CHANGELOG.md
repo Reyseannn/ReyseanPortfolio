@@ -8,3 +8,7 @@
 ## 2026-10-12
 
 - Switched the six project screenshots to same-site `/images/` paths instead of GitHub's raw content host. This keeps portfolio imagery on the site's own asset origin and removes the separate image-host dependency.
+## 2026-10-13
+
+- Added a keyboard-accessible skip link that appears on focus and moves directly to the main portfolio content, avoiding repeated sidebar navigation.
+
