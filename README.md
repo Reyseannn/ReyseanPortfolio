@@ -7,6 +7,7 @@ A responsive one-page portfolio for Reysean Policarpio, a BS Computer Engineerin
 - Editorial dark-gray and electric-blue design
 - Responsive project galleries for FireFlies, Beyond the Lens, and eTickette
 - Honest project roles and contribution details
+- Concise hero copy and a simplified footer
 - Accessible focus states and reduced-motion support
 - Skip-to-content navigation for keyboard users
 - FormSubmit-powered contact form
