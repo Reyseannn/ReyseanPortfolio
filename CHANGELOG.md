@@ -16,3 +16,7 @@
 ## 2026-10-14
 
 - Replaced the obsolete rendered-HTML test, which expected a removed `dist/server/index.js` worker, with a test for the portfolio document that is actually served. The test now validates metadata, CSS and JavaScript asset paths, the keyboard skip link, and every main navigation target after a production build.
+
+## 2026-10-15
+
+- Shortened the hero introduction to avoid repeating the name already shown in the headline, and removed the HTML/CSS/JavaScript label from the footer to reduce duplicate details.
