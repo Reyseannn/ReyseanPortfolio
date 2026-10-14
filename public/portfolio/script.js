@@ -44,7 +44,7 @@ const projects = [
 const projectList = document.querySelector("#project-list");
 projectList.innerHTML = projects.map((project) => {
   const projectLink = project.link
-    ? `<a class="project-link" href="${project.link}" target="_blank" rel="noopener noreferrer">View project <span>↗</span></a>`
+    ? `<a class="project-link" href="${project.link}" target="_blank" rel="noopener noreferrer">View project <span><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></span></a>`
     : "";
 
   return `
