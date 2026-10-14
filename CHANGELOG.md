@@ -8,7 +8,11 @@
 ## 2026-10-12
 
 - Switched the six project screenshots to same-site `/images/` paths instead of GitHub's raw content host. This keeps portfolio imagery on the site's own asset origin and removes the separate image-host dependency.
+
 ## 2026-10-13
 
 - Added a keyboard-accessible skip link that appears on focus and moves directly to the main portfolio content, avoiding repeated sidebar navigation.
 
+## 2026-10-14
+
+- Replaced the obsolete rendered-HTML test, which expected a removed `dist/server/index.js` worker, with a test for the portfolio document that is actually served. The test now validates metadata, CSS and JavaScript asset paths, the keyboard skip link, and every main navigation target after a production build.
