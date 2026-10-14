@@ -22,11 +22,14 @@ npm ci
 npm run dev
 ```
 
-Run the static checks with:
+Run the code-quality check and the production-build test with:
 
 ```bash
 npm run lint
+npm test
 ```
+
+The test builds the Next.js app, then checks the shipped portfolio document's metadata, asset paths, skip link, and section navigation targets.
 
 ## Contact form
 
