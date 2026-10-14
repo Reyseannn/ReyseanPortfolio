@@ -1,33 +1,31 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-const developmentPreviewMeta =
-  /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
+const portfolioDocument = new URL(
+  "../public/portfolio/index.html",
+  import.meta.url,
+);
 
-test("renders development preview metadata", async () => {
-  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-  const { default: worker } = await import(workerUrl.href);
+test("ships the portfolio document with metadata and navigation targets", async () => {
+  const html = await readFile(portfolioDocument, "utf8");
 
-  const response = await worker.fetch(
-    new Request("http://localhost/", {
-      headers: { accept: "text/html" },
-    }),
-    {
-      ASSETS: {
-        fetch: async () => new Response("Not found", { status: 404 }),
-      },
-    },
-    {
-      waitUntil() {},
-      passThroughOnException() {},
-    },
-  );
+  assert.match(html, /<meta\s+name="viewport"[^>]*>/i);
+  assert.match(html, /<meta\s+name="description"[^>]*>/i);
+  assert.match(html, /<link\s+rel="stylesheet"\s+href="\/portfolio\/style\.css">/i);
+  assert.match(html, /<script\s+src="\/portfolio\/script\.js"\s+defer><\/script>/i);
+  assert.match(html, /href="#main-content"/i);
+  assert.match(html, /<main\s+id="main-content"[^>]*>/i);
 
-  assert.equal(response.status, 200);
-  assert.match(
-    response.headers.get("content-type") ?? "",
-    /^text\/html\b/i,
-  );
-  assert.match(await response.text(), developmentPreviewMeta);
+  for (const section of [
+    "about",
+    "projects",
+    "education",
+    "skills",
+    "github",
+    "contact",
+  ]) {
+    assert.match(html, new RegExp(`href=["']#${section}["']`, "i"));
+    assert.match(html, new RegExp(`id=["']${section}["']`, "i"));
+  }
 });
