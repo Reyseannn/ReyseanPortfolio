@@ -19,5 +19,6 @@
 
 ## 2026-10-15
 
+- Adjusted the eTickette gallery on narrow screens to stack the photos and display the portrait kiosk setup image without cropping.
 - Shortened the hero introduction to avoid repeating the name already shown in the headline, and removed the HTML/CSS/JavaScript label from the footer to reduce duplicate details.
 - Refocused the About section on demonstrated work: building web pages and Java Android apps, leading student project development, and contributing to eTickette’s kiosk setup.
