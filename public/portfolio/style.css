@@ -161,6 +161,9 @@ h2 { margin: 0; font-size: 26px; line-height: 1.25; letter-spacing: -.045em; }
   .section-heading { margin-bottom: 17px; }
   .section-lead { margin-left: 0; }
   .project, .project-beyond, .project-etickette { grid-template-columns: 1fr; gap: 19px; padding: 26px 0; }
+  .etickette-gallery { grid-template-columns: 1fr; }
+  .etickette-gallery img { height: auto; }
+  .etickette-gallery img:nth-child(2) { height: 260px; object-fit: contain; background: var(--bg); }
   .project-beyond .project-media { order: 2; }
   .project-etickette .project-media { order: 2; }
   .phone-gallery img { width: 30%; max-height: 240px; }
