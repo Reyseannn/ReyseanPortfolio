@@ -22,3 +22,7 @@
 - Adjusted the eTickette gallery on narrow screens to stack the photos and display the portrait kiosk setup image without cropping.
 - Shortened the hero introduction to avoid repeating the name already shown in the headline, and removed the HTML/CSS/JavaScript label from the footer to reduce duplicate details.
 - Refocused the About section on demonstrated work: building web pages and Java Android apps, leading student project development, and contributing to eTickette’s kiosk setup.
+
+## 2026-10-16
+
+- Removed a leftover 190px mobile height rule that overrode the eTickette landscape photo's natural proportions. The landscape image now keeps its full frame on phones; the portrait photo retains its 260px contained frame, and desktop gallery rules are unchanged.
