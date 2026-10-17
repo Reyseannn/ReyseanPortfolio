@@ -26,3 +26,7 @@
 ## 2026-10-16
 
 - Removed a leftover 190px mobile height rule that overrode the eTickette landscape photo's natural proportions. The landscape image now keeps its full frame on phones; the portrait photo retains its 260px contained frame, and desktop gallery rules are unchanged.
+
+## 2026-10-17
+
+- Updated the contact résumé link to use the existing same-site PDF in `/downloads/` instead of GitHub's raw-file host. The link now opens the résumé shipped with the current deployment and removes the separate file-host dependency.

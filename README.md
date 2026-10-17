@@ -13,7 +13,7 @@ A responsive one-page portfolio for Reysean Policarpio, a BS Computer Engineerin
 - Accessible focus states and reduced-motion support
 - Skip-to-content navigation for keyboard users
 - FormSubmit-powered contact form
-- Downloadable one-page résumé
+- One-page résumé served from the site's `/downloads/` assets
 - Open Graph and social sharing image
 
 ## Local development
