@@ -30,3 +30,8 @@
 ## 2026-10-17
 
 - Updated the contact résumé link to use the existing same-site PDF in `/downloads/` instead of GitHub's raw-file host. The link now opens the résumé shipped with the current deployment and removes the separate file-host dependency.
+
+## 2026-10-18
+
+- Added a compact highlights strip showing the three student projects and three eTickette team placements already documented on the portfolio. Purple counts and monospace labels follow the site's palette, with tighter spacing on phones.
+- Corrected the README's palette and contact details to match the live site, removing an obsolete claim about a working contact form.

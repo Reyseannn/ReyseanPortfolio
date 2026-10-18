@@ -1,10 +1,11 @@
 # Reysean Policarpio — Portfolio
 
-A responsive one-page portfolio for Reysean Policarpio, a BS Computer Engineering student in Quezon City. The site presents three completed student projects, confirmed services and tools, education and awards, a downloadable résumé, and a working project-inquiry form.
+A responsive one-page portfolio for Reysean Policarpio, a BS Computer Engineering student in Quezon City. The site presents three completed student projects, confirmed services and tools, education and awards, and a downloadable résumé.
 
 ## Highlights
 
-- Editorial dark-gray and electric-blue design
+- Dark background with purple and yellow accents
+- Portfolio highlights for three student projects and three eTickette team placements
 - Responsive project galleries for FireFlies, Beyond the Lens, and eTickette
 - Mobile eTickette gallery with a naturally sized landscape photo and an uncropped kiosk setup photo
 - Honest project roles and contribution details
@@ -12,7 +13,7 @@ A responsive one-page portfolio for Reysean Policarpio, a BS Computer Engineerin
 - Concise hero copy and a simplified footer
 - Accessible focus states and reduced-motion support
 - Skip-to-content navigation for keyboard users
-- FormSubmit-powered contact form
+- Direct email and profile links in the contact section
 - One-page résumé served from the site's `/downloads/` assets
 - Open Graph and social sharing image
 
@@ -33,10 +34,6 @@ npm test
 ```
 
 The test builds the Next.js app, then checks the shipped portfolio document's metadata, asset paths, skip link, and section navigation targets.
-
-## Contact form
-
-The form sends submissions through FormSubmit to `policarpioreysean3@gmail.com`. FormSubmit sends a one-time activation email after the first submission; the owner must approve it before later submissions can be delivered normally.
 
 ## Content notes
 

@@ -29,3 +29,20 @@ test("ships the portfolio document with metadata and navigation targets", async 
     assert.match(html, new RegExp(`id=["']${section}["']`, "i"));
   }
 });
+
+test("portfolio highlights match the projects and team placements shown", async () => {
+  const html = await readFile(portfolioDocument, "utf8");
+  const highlights = html.match(
+    /<dl class="portfolio-stats"[^>]*>([\s\S]*?)<\/dl>/i,
+  )?.[1];
+  const entries = [...(highlights ?? "").matchAll(
+    /<dt>([^<]+)<\/dt>\s*<dd>(\d+)<\/dd>/g,
+  )].map(([, label, count]) => [count, label]);
+  const projectCount = [...html.matchAll(/<article class="project(?: [^"]*)?"/g)].length;
+  const placementCount = [...html.matchAll(/<li>[^<]*Runner-Up<\/li>/g)].length;
+
+  assert.deepEqual(entries, [
+    [String(projectCount), "Student projects"],
+    [String(placementCount), "eTickette team placements"],
+  ]);
+});
