@@ -2,6 +2,17 @@
 const menuButton = document.querySelector(".menu-toggle");
 const navigation = document.querySelector(".side-links");
 
+function closeMenu() {
+  menuButton.setAttribute("aria-expanded", "false");
+  menuButton.setAttribute("aria-label", "Open navigation");
+  navigation.classList.remove("open");
+}
+
+const mobileLayout = window.matchMedia("(max-width: 760px)");
+mobileLayout.addEventListener("change", (event) => {
+  if (!event.matches) closeMenu();
+});
+
 menuButton.addEventListener("click", () => {
   const isOpen = menuButton.getAttribute("aria-expanded") === "true";
   menuButton.setAttribute("aria-expanded", String(!isOpen));
@@ -13,19 +24,13 @@ menuButton.addEventListener("click", () => {
 document.addEventListener("keydown", (event) => {
   if (event.key !== "Escape" || menuButton.getAttribute("aria-expanded") !== "true") return;
 
-  menuButton.setAttribute("aria-expanded", "false");
-  menuButton.setAttribute("aria-label", "Open navigation");
-  navigation.classList.remove("open");
+  closeMenu();
   menuButton.focus();
 });
 
 // Close the mobile menu after selecting a section.
 navigation.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    menuButton.setAttribute("aria-expanded", "false");
-    menuButton.setAttribute("aria-label", "Open navigation");
-    navigation.classList.remove("open");
-  });
+  link.addEventListener("click", closeMenu);
 });
 
 // PROJECT LIST — ADD NEW PROJECTS HERE

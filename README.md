@@ -33,12 +33,14 @@ npm run lint
 npm test
 ```
 
-The test builds the Next.js app, then checks the shipped portfolio document's metadata, asset paths, skip link, and section navigation targets.
+The tests build the Next.js app, then check the shipped portfolio document's metadata, asset paths, skip link, section navigation targets, and highlight counts. A navigation behavior test also checks menu state across layout changes, Escape, and section selection.
 
 ## Content notes
 
 Project claims and roles are documented in [PRODUCT.md](PRODUCT.md). Visual rules are documented in [DESIGN.md](DESIGN.md).
 
 ## Recent updates
+
+2026-10-18: Mobile navigation now resets when switching to the desktop layout, preventing the menu from staying open when returning to a phone-sized view. Automated behavior checks cover resizing, Escape, and section selection.
 
 See [CHANGELOG.md](CHANGELOG.md) for dated maintenance notes. The live static portfolio is served from `public/portfolio`. Project screenshots load from `/images/` on the same site.
