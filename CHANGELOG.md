@@ -36,3 +36,7 @@
 - Added a compact highlights strip showing the three student projects and three eTickette team placements already documented on the portfolio. Purple counts and monospace labels follow the site's palette, with tighter spacing on phones.
 - Corrected the README's palette and contact details to match the live site, removing an obsolete claim about a working contact form.
 - Reset the mobile navigation when switching to the desktop layout so it stays closed when returning to a narrow screen. The expanded state, button label, and visible menu now reset together; Escape still returns focus to the toggle, and section links still close the menu. Added a navigation behavior test to the standard test command.
+
+## 2026-10-19
+
+- Added the GitHub calendar's verified 663 × 104 dimensions to its lazy-loaded image. The browser can now reserve its aspect ratio before the external SVG loads, reducing movement in the contact section below. Existing desktop and mobile scaling remains in place.

@@ -41,6 +41,8 @@ Project claims and roles are documented in [PRODUCT.md](PRODUCT.md). Visual rule
 
 ## Recent updates
 
+2026-10-19: The GitHub contribution calendar reserves its image space before loading to reduce layout shifts. Its verified 663 × 104 aspect ratio scales with the existing responsive styles.
+
 2026-10-18: Mobile navigation now resets when switching to the desktop layout, preventing the menu from staying open when returning to a phone-sized view. Automated behavior checks cover resizing, Escape, and section selection.
 
 See [CHANGELOG.md](CHANGELOG.md) for dated maintenance notes. The live static portfolio is served from `public/portfolio`. Project screenshots load from `/images/` on the same site.
