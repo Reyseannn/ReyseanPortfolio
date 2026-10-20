@@ -136,9 +136,9 @@ h2 { margin: 0; font-size: 26px; line-height: 1.25; letter-spacing: -.045em; }
   .sidebar { position: sticky; width: 100%; height: auto; padding: 14px 20px; border-right: 0; border-bottom: 1px solid var(--line); }
   .sidebar-top { max-width: 700px; width: 100%; margin-inline: auto; }
   .brand { font-size: 14px; }
-  .menu-toggle { display: flex; flex-direction: column; gap: 5px; justify-content: center; width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 4px; background: transparent; }
+  .menu-toggle { display: flex; flex-direction: column; flex-shrink: 0; gap: 5px; justify-content: center; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 4px; background: transparent; }
   .menu-toggle span { width: 15px; height: 1px; margin-inline: auto; background: var(--text); }
-  .side-links { display: none; position: absolute; top: 66px; left: 0; right: 0; margin: 0; padding: 10px 20px 16px; background: var(--side); border-bottom: 1px solid var(--line); }
+  .side-links { display: none; position: absolute; top: 100%; left: 0; right: 0; margin: 0; padding: 10px 20px 16px; background: var(--side); border-bottom: 1px solid var(--line); }
   .side-links.open { display: grid; }
   .side-links a { padding: 8px 0; }
   .sidebar-bottom { display: none; }

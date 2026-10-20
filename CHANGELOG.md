@@ -40,3 +40,7 @@
 ## 2026-10-19
 
 - Added the GitHub calendar's verified 663 × 104 dimensions to its lazy-loaded image. The browser can now reserve its aspect ratio before the external SVG loads, reducing movement in the contact section below. Existing desktop and mobile scaling remains in place.
+
+## 2026-10-20
+
+- Increased the mobile menu toggle from 38 × 38 to 44 × 44 pixels and prevented it from shrinking in the header. Positioned the dropdown at the header's full height instead of a fixed 66px offset so it stays aligned with the larger control and with text resizing. Desktop navigation and existing menu behavior are unchanged.
