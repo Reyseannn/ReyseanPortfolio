@@ -116,8 +116,10 @@ h2 { margin: 0; font-size: 26px; line-height: 1.25; letter-spacing: -.045em; }
 @media (max-width: 560px) { .github-activity { padding: 8px; } }
 .contact-content { display: grid; grid-template-columns: 1.2fr .8fr; gap: 44px; align-items: start; }
 .contact-intro { max-width: 52ch; margin: 0 0 19px; color: #d0c9d8; font-size: 14px; }
-.contact-email { display: inline-block; color: var(--text); font-size: 15px; border-bottom: 1px solid var(--purple); padding-bottom: 6px; }
-.contact-email span, .contact-links span { color: var(--yellow); margin-left: 7px; }
+.contact-email { display: inline-flex; align-items: center; gap: 7px; max-width: 100%; color: var(--text); font-size: 15px; border-bottom: 1px solid var(--purple); padding-bottom: 6px; }
+.contact-email-address { min-width: 0; overflow-wrap: anywhere; }
+.contact-email-icon { display: inline-flex; flex-shrink: 0; color: var(--yellow); }
+.contact-links span { color: var(--yellow); margin-left: 7px; }
 .contact-links { display: grid; border-top: 1px solid var(--line); }
 .contact-links a { display: flex; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid var(--line); color: #d4cddd; font-size: 12px; }
 .footer { display: flex; justify-content: space-between; gap: 12px; padding-top: 20px; color: var(--muted); font-size: 10px; }

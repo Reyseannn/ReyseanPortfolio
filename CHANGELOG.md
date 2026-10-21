@@ -44,3 +44,7 @@
 ## 2026-10-20
 
 - Increased the mobile menu toggle from 38 × 38 to 44 × 44 pixels and prevented it from shrinking in the header. Positioned the dropdown at the header's full height instead of a fixed 66px offset so it stays aligned with the larger control and with text resizing. Desktop navigation and existing menu behavior are unchanged.
+
+## 2026-10-21
+
+- Updated the contact email link to wrap safely on narrow screens without pushing its arrow outside the viewport. The desktop appearance, mail link, and contact navigation remain unchanged.

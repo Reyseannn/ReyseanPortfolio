@@ -41,6 +41,8 @@ Project claims and roles are documented in [PRODUCT.md](PRODUCT.md). Visual rule
 
 ## Recent updates
 
+2026-10-21: Made the contact email wrap safely on narrow screens while keeping its arrow aligned and easy to recognize.
+
 2026-10-20: Enlarged the mobile menu button to 44 × 44 pixels for easier tapping. The dropdown now follows the header's actual height rather than a fixed pixel offset.
 
 2026-10-19: The GitHub contribution calendar reserves its image space before loading to reduce layout shifts. Its verified 663 × 104 aspect ratio scales with the existing responsive styles.
