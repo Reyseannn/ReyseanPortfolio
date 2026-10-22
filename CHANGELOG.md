@@ -48,3 +48,7 @@
 ## 2026-10-21
 
 - Updated the contact email link to wrap safely on narrow screens without pushing its arrow outside the viewport. The desktop appearance, mail link, and contact navigation remain unchanged.
+
+## 2026-10-22
+
+- Added Open Graph, X/Twitter, canonical URL, and image metadata directly to the static homepage that serves the live site. Set the Next.js metadata base to the production URL so its fallback route resolves social images without a build warning, and added regression checks for the sharing tags.

@@ -41,6 +41,8 @@ Project claims and roles are documented in [PRODUCT.md](PRODUCT.md). Visual rule
 
 ## Recent updates
 
+2026-10-22: Added complete social sharing metadata to the live static homepage and set the production metadata base URL for the Next.js fallback.
+
 2026-10-21: Made the contact email wrap safely on narrow screens while keeping its arrow aligned and easy to recognize.
 
 2026-10-20: Enlarged the mobile menu button to 44 × 44 pixels for easier tapping. The dropdown now follows the header's actual height rather than a fixed pixel offset.
