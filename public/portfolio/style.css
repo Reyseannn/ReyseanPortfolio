@@ -32,6 +32,8 @@ img { max-width: 100%; display: block; }
 .side-links a { display: flex; gap: 13px; padding: 9px 0; color: #d0c8da; font-size: 13px; transition: color .18s ease; }
 .side-links a span { color: #81758f; font: 10px var(--mono); }
 .side-links a:hover { color: var(--yellow); }
+.side-links a[aria-current="location"] { color: var(--yellow); font-weight: 700; }
+.side-links a[aria-current="location"] span { color: var(--yellow); }
 .sidebar-bottom { display: grid; gap: 16px; margin-top: auto; font-size: 11px; color: var(--muted); }
 .sidebar-bottom a { overflow-wrap: anywhere; }
 .sidebar-bottom b { color: var(--yellow); font-weight: 400; }

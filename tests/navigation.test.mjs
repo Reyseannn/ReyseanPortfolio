@@ -14,6 +14,11 @@ test("mobile menu resets across layout changes and keeps its closing controls", 
 
   const classes = new Set();
   const link = new EventTarget();
+  const linkAttributes = new Map([["href", "#about"]]);
+  link.getAttribute = (name) => linkAttributes.get(name);
+  link.setAttribute = (name, value) => linkAttributes.set(name, value);
+  link.removeAttribute = (name) => linkAttributes.delete(name);
+  const aboutSection = { id: "about" };
   const navigation = {
     classList: {
       toggle: (name, present) => present ? classes.add(name) : classes.delete(name),
@@ -21,11 +26,22 @@ test("mobile menu resets across layout changes and keeps its closing controls", 
     },
     querySelectorAll: () => [link],
   };
+  const observedSections = [];
+  let updateActiveSection;
+  class IntersectionObserver {
+    constructor(callback, options) {
+      updateActiveSection = callback;
+      assert.equal(options.rootMargin, "-20% 0px -65%");
+      assert.equal(options.threshold, 0);
+    }
+    observe(section) { observedSections.push(section); }
+  }
   const document = new EventTarget();
   document.querySelector = (selector) => ({
     ".menu-toggle": button,
     ".side-links": navigation,
     "#project-list": { innerHTML: "" },
+    "#about": aboutSection,
   })[selector];
   const layout = new EventTarget();
   const window = {
@@ -33,6 +49,7 @@ test("mobile menu resets across layout changes and keeps its closing controls", 
       assert.equal(query, "(max-width: 760px)");
       return layout;
     },
+    IntersectionObserver,
   };
   runInNewContext(script, { document, window });
 
@@ -60,4 +77,8 @@ test("mobile menu resets across layout changes and keeps its closing controls", 
   link.dispatchEvent(new Event("click"));
   assertClosed();
   assert.equal(focusCount, 1, "section selection must not pull focus back to the toggle");
+
+  assert.deepEqual(observedSections, [aboutSection]);
+  updateActiveSection([{ target: aboutSection, isIntersecting: true }]);
+  assert.equal(link.getAttribute("aria-current"), "location");
 });

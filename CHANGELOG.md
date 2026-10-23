@@ -52,3 +52,7 @@
 ## 2026-10-22
 
 - Added Open Graph, X/Twitter, canonical URL, and image metadata directly to the static homepage that serves the live site. Set the Next.js metadata base to the production URL so its fallback route resolves social images without a build warning, and added regression checks for the sharing tags.
+
+## 2026-10-23
+
+- Added section-aware navigation using `IntersectionObserver`. The visible section now receives an accessible `aria-current="location"` state and the existing yellow accent on both desktop and mobile, with automated coverage for the observer behavior.

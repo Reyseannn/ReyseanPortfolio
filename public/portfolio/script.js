@@ -33,6 +33,28 @@ navigation.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", closeMenu);
 });
 
+// Keep the navigation aligned with the section currently in view.
+if ("IntersectionObserver" in window) {
+  const sectionLinks = [...navigation.querySelectorAll('a[href^="#"]')];
+  const linksBySection = new Map(
+    sectionLinks.map((link) => [link.getAttribute("href").slice(1), link]),
+  );
+
+  const sectionObserver = new window.IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      sectionLinks.forEach((link) => link.removeAttribute("aria-current"));
+      linksBySection.get(entry.target.id)?.setAttribute("aria-current", "location");
+    });
+  }, { rootMargin: "-20% 0px -65%", threshold: 0 });
+
+  linksBySection.forEach((_, sectionId) => {
+    const section = document.querySelector(`#${sectionId}`);
+    if (section) sectionObserver.observe(section);
+  });
+}
+
 // PROJECT LIST — ADD NEW PROJECTS HERE
 // Add the image to public/portfolio/assets, then use /portfolio/assets/filename.jpg.
 // The link field is optional.
