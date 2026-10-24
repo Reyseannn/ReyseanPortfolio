@@ -56,3 +56,7 @@
 ## 2026-10-23
 
 - Added section-aware navigation using `IntersectionObserver`. The visible section now receives an accessible `aria-current="location"` state and the existing yellow accent on both desktop and mobile, with automated coverage for the observer behavior.
+
+## 2026-10-24
+
+- Linked the existing SVG favicon from the live static homepage and updated its R mark from an unrelated blue treatment to the portfolio's dark purple, soft purple, and yellow palette. Added a regression check for the favicon link.

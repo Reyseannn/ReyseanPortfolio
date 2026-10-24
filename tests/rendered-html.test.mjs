@@ -15,6 +15,7 @@ test("ships the portfolio document with metadata and navigation targets", async 
   assert.match(html, /<meta\s+property="og:image"\s+content="https:\/\/reysean\.vercel\.app\/og\.png">/i);
   assert.match(html, /<meta\s+name="twitter:card"\s+content="summary_large_image">/i);
   assert.match(html, /<link\s+rel="canonical"\s+href="https:\/\/reysean\.vercel\.app\/">/i);
+  assert.match(html, /<link\s+rel="icon"\s+href="\/favicon\.svg"\s+type="image\/svg\+xml">/i);
   assert.match(html, /<link\s+rel="stylesheet"\s+href="\/portfolio\/style\.css">/i);
   assert.match(html, /<script\s+src="\/portfolio\/script\.js"\s+defer><\/script>/i);
   assert.match(html, /href="#main-content"/i);

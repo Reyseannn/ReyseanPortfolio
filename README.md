@@ -41,6 +41,8 @@ Project claims and roles are documented in [PRODUCT.md](PRODUCT.md). Visual rule
 
 ## Recent updates
 
+2026-10-24: Connected the favicon to the live static homepage and restyled its existing R mark with the portfolio's dark purple and yellow palette.
+
 2026-10-23: Added an accessible active state to the sidebar navigation so the section currently in view is highlighted on desktop and mobile.
 
 2026-10-22: Added complete social sharing metadata to the live static homepage and set the production metadata base URL for the Next.js fallback.
