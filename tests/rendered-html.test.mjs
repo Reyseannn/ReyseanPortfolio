@@ -1,9 +1,13 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
 const portfolioDocument = new URL(
   "../public/portfolio/index.html",
+  import.meta.url,
+);
+const optimizedHeroPortrait = new URL(
+  "../public/images/reysean-profile.webp",
   import.meta.url,
 );
 
@@ -18,6 +22,9 @@ test("ships the portfolio document with metadata and navigation targets", async 
   assert.match(html, /<link\s+rel="icon"\s+href="\/favicon\.svg"\s+type="image\/svg\+xml">/i);
   assert.match(html, /<link\s+rel="stylesheet"\s+href="\/portfolio\/style\.css">/i);
   assert.match(html, /<script\s+src="\/portfolio\/script\.js"\s+defer><\/script>/i);
+  assert.match(html, /<source\s+srcset="\/images\/reysean-profile\.webp"\s+type="image\/webp">/i);
+  assert.match(html, /<img\s+src="\/images\/reysean-profile\.png"[^>]*>/i);
+  await access(optimizedHeroPortrait);
   assert.match(html, /href="#main-content"/i);
   assert.match(html, /<main\s+id="main-content"[^>]*>/i);
 

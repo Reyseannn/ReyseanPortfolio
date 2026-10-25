@@ -60,3 +60,7 @@
 ## 2026-10-24
 
 - Linked the existing SVG favicon from the live static homepage and updated its R mark from an unrelated blue treatment to the portfolio's dark purple, soft purple, and yellow palette. Added a regression check for the favicon link.
+
+## 2026-10-25
+
+- Converted the live hero portrait from a 311 KB PNG to a visually matched 19 KB WebP, reducing its primary transfer size by about 94%. Added a `<picture>` source while retaining the original PNG fallback, preserved the 529 × 615 dimensions and responsive rules, and added regression coverage for the optimized asset.
