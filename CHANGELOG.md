@@ -64,3 +64,7 @@
 ## 2026-10-25
 
 - Converted the live hero portrait from a 311 KB PNG to a visually matched 19 KB WebP, reducing its primary transfer size by about 94%. Added a `<picture>` source while retaining the original PNG fallback, preserved the 529 × 615 dimensions and responsive rules, and added regression coverage for the optimized asset.
+
+## 2026-10-26
+
+- Increased all six mobile dropdown navigation links to a minimum 44-pixel touch target and vertically centered their labels. The desktop sidebar spacing, active-section state, menu toggle, and close behavior remain unchanged.

@@ -145,7 +145,7 @@ h2 { margin: 0; font-size: 26px; line-height: 1.25; letter-spacing: -.045em; }
   .menu-toggle span { width: 15px; height: 1px; margin-inline: auto; background: var(--text); }
   .side-links { display: none; position: absolute; top: 100%; left: 0; right: 0; margin: 0; padding: 10px 20px 16px; background: var(--side); border-bottom: 1px solid var(--line); }
   .side-links.open { display: grid; }
-  .side-links a { padding: 8px 0; }
+  .side-links a { min-height: 44px; align-items: center; padding: 9px 0; }
   .sidebar-bottom { display: none; }
   .main-content { width: min(700px, calc(100% - 40px)); margin: auto; padding: 16px 0 22px; }
   .hero { grid-template-columns: minmax(0, 1fr) 150px; gap: 22px; min-height: auto; padding: 32px 0 42px; }
