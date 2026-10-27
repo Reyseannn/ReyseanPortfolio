@@ -10,6 +10,10 @@ const optimizedHeroPortrait = new URL(
   "../public/images/reysean-profile.webp",
   import.meta.url,
 );
+const portfolioStyles = new URL(
+  "../public/portfolio/style.css",
+  import.meta.url,
+);
 
 test("ships the portfolio document with metadata and navigation targets", async () => {
   const html = await readFile(portfolioDocument, "utf8");
@@ -56,4 +60,13 @@ test("portfolio highlights match the projects and team placements shown", async 
     [String(projectCount), "Student projects"],
     [String(placementCount), "eTickette team placements"],
   ]);
+});
+
+test("keeps primary content links easy to tap on phones", async () => {
+  const css = await readFile(portfolioStyles, "utf8");
+
+  assert.match(
+    css,
+    /@media \(max-width: 560px\)[\s\S]*\.project-link, \.github-profile-link, \.contact-links a, \.footer a \{ min-height: 44px; align-items: center; \}/,
+  );
 });

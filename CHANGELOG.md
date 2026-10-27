@@ -68,3 +68,7 @@
 ## 2026-10-26
 
 - Increased all six mobile dropdown navigation links to a minimum 44-pixel touch target and vertically centered their labels. The desktop sidebar spacing, active-section state, menu toggle, and close behavior remain unchanged.
+
+## 2026-10-27
+
+- Increased project actions, the GitHub profile action, contact links, and footer links to a minimum 44-pixel tap target on screens up to 560 pixels wide. Their desktop sizing, link destinations, and navigation behavior remain unchanged.

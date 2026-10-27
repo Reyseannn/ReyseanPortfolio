@@ -185,6 +185,7 @@ h2 { margin: 0; font-size: 26px; line-height: 1.25; letter-spacing: -.045em; }
   .timeline article { grid-template-columns: 1fr; gap: 3px; padding: 14px 0; }
   .recognition { margin-left: 0; }
   .contact-content { grid-template-columns: 1fr; gap: 27px; }
+  .project-link, .github-profile-link, .contact-links a, .footer a { min-height: 44px; align-items: center; }
   .footer { flex-wrap: wrap; }
 }
 @media (prefers-reduced-motion: reduce) {
