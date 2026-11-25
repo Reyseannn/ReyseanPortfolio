@@ -194,7 +194,7 @@ h2 { margin: 0; font-size: 26px; line-height: 1.25; letter-spacing: -.045em; }
 
 /* AGAP: sharp original screenshots, five-second slideshow */
 .agap-gallery { overflow: hidden; min-width: 0; background: #101018; }
-.agap-screen { position: relative; width: 100%; aspect-ratio: 1.55; overflow: hidden; background: #e9edf5; }
+.agap-screen { position: relative; width: 100%; aspect-ratio: 1.93; overflow: hidden; background: #101018; transition: aspect-ratio .25s ease; }
 .agap-screen img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; }
 .agap-screen .agap-slide { opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility .35s ease; }
 .agap-screen .agap-slide.is-active { opacity: 1; visibility: visible; z-index: 1; }
