@@ -62,6 +62,13 @@ const projects = [
   {
     title: "AGAP — Community Complaint System",
     image: "/portfolio/assets/agap-real.webp",
+    slides: [
+      {src: "/portfolio/assets/agap-home.webp", alt: "AGAP landing page", label: "Homepage"},
+      {src: "/portfolio/assets/agap-admin.webp", alt: "AGAP barangay administration dashboard", label: "Admin dashboard"},
+      {src: "/portfolio/assets/agap-features.webp", alt: "AGAP process and feature overview", label: "How it works"},
+      {src: "/portfolio/assets/agap-signin.webp", alt: "AGAP sign in screen", label: "Sign in"},
+      {src: "/portfolio/assets/agap-verify.webp", alt: "AGAP resident verification form with empty fields", label: "Verification"}
+    ],
     paragraph: "A CRUD-based barangay complaint management system I developed for my college final project. It gives residents a dedicated channel to report community concerns and track their progress while barangay staff review reports, verify residents, and manage resolutions. I worked as the solo developer and team leader, building the HTML, CSS, and JavaScript interface with a C++ backend. Runs locally; source code is available on GitHub.",
     link: "https://github.com/Reyseannn/AGAP"
   },
@@ -75,22 +82,123 @@ const projects = [
 ];
 
 const projectList = document.querySelector("#project-list");
-projectList.innerHTML = projects.map((project) => {
+projectList.innerHTML = projects.map((project, projectIndex) => {
   const projectLink = project.link
-    ? `<a class="project-link" href="${project.link}" target="_blank" rel="noopener noreferrer">View project <span><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></span></a>`
+    ? `<a class="project-link" href="${project.link}" target="_blank" rel="noopener noreferrer">View source code <span aria-hidden="true">↗</span></a>`
     : "";
 
+  // If screenshots are not yet uploaded, keep the existing working preview.
+  const slides = project.slides || [{ src: project.image, alt: project.title, label: "Preview" }];
+  const slidesMarkup = slides.map((slide, i) => `
+    <img class="agap-slide${i === 0 ? " is-active" : ""}" src="${slide.src}"
+      alt="${slide.alt}" loading="${i === 0 ? "lazy" : "lazy"}"
+      data-slide="${i}" aria-hidden="${i === 0 ? "false" : "true"}">
+  `).join("");
+  const dots = slides.map((slide, i) => `
+    <button type="button" class="agap-dot${i === 0 ? " is-active" : ""}" data-goto="${i}"
+      aria-label="Show ${slide.label}" aria-current="${i === 0 ? "true" : "false"}"></button>
+  `).join("");
   return `
     <article class="project project-extra">
       <div class="project-copy">
+        <p class="project-kind">C++ Full-stack · College final project</p>
         <h3>${project.title}</h3>
+        <p class="project-role">Solo Developer &amp; Team Leader</p>
         <p>${project.paragraph}</p>
+        <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>C++</span><span>CRUD</span></div>
         ${projectLink}
       </div>
-      <div class="project-media extra-project-media">
-        <img src="${project.image}" alt="${project.title}" loading="lazy">
+      <div class="project-media agap-gallery" data-gallery="${projectIndex}" role="region" aria-label="${project.title} screenshots" aria-roledescription="carousel">
+        <div class="agap-screen">
+          <img class="agap-fallback" src="${project.image}" alt="${project.title} interface preview" loading="lazy">
+          ${slidesMarkup}
+        </div>
+        <div class="agap-gallery-controls">
+          <button class="agap-arrow" type="button" data-prev aria-label="Previous screenshot">‹</button>
+          <div class="agap-dots" aria-label="Choose screenshot">${dots}</div>
+          <button class="agap-arrow" type="button" data-next aria-label="Next screenshot">›</button>
+          <button class="agap-play" type="button" data-toggle aria-label="Pause slideshow">Pause</button>
+        </div>
+        <p class="agap-caption" aria-live="polite">${slides[0].label} · 1/${slides.length}</p>
       </div>
     </article>
   `;
 }).join("");
 
+document.querySelectorAll(".agap-gallery").forEach((gallery, idx) => {
+  const entries = projects[idx].slides || [{ src: projects[idx].image, label: "Preview" }];
+  const slides = [...gallery.querySelectorAll(".agap-slide")];
+  const dots = [...gallery.querySelectorAll(".agap-dot")];
+  const caption = gallery.querySelector(".agap-caption");
+  const fallback = gallery.querySelector(".agap-fallback");
+  const play = gallery.querySelector(".agap-play");
+  let current = 0;
+  let timer = null;
+  let paused = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let visible = true;
+  const available = new Set();
+  const show = (next) => {
+    const possible = [...available].sort((a,b)=>a-b);
+    if (!possible.length) {
+      slides.forEach(slide => slide.classList.remove("is-active"));
+      fallback.hidden = false;
+      caption.textContent = "AGAP screenshot";
+      return;
+    }
+    current = possible.includes(next) ? next : possible.find(i => i > current) ?? possible[0];
+    fallback.hidden = true;
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("is-active", i === current);
+      slide.setAttribute("aria-hidden", i === current ? "false" : "true");
+    });
+    dots.forEach((dot,i) => {
+      dot.classList.toggle("is-active", i === current);
+      dot.setAttribute("aria-current", i === current ? "true" : "false");
+      dot.disabled = !available.has(i);
+    });
+    caption.textContent = `${entries[current].label} · ${current + 1}/${entries.length}`;
+  };
+  const stop = () => { if(timer !== null) clearInterval(timer); timer = null; };
+  const start = () => {
+    stop();
+    if (paused || !visible || document.hidden || available.size < 2) return;
+    timer = setInterval(() => {
+      const possible = [...available].sort((a,b)=>a-b);
+      const position = possible.indexOf(current);
+      show(possible[(position + 1) % possible.length]);
+    }, 5000);
+  };
+  const navigate = (direction) => {
+    const possible = [...available].sort((a,b)=>a-b);
+    if (!possible.length) return;
+    const position = possible.indexOf(current);
+    show(possible[(position + direction + possible.length) % possible.length]);
+    start();
+  };
+  slides.forEach((slide,i) => {
+    slide.addEventListener("load", () => { available.add(i);show(current); start(); });
+    slide.addEventListener("error", () => { available.delete(i);show(current); start(); });
+    if (slide.complete) {
+      if (slide.naturalWidth > 0) available.add(i);
+    }
+  });
+  show(0);
+  gallery.querySelector("[data-prev]").addEventListener("click", () => navigate(-1));
+  gallery.querySelector("[data-next]").addEventListener("click", () => navigate(1));
+  dots.forEach(dot => dot.addEventListener("click", () => { show(Number(dot.dataset.goto)); start(); }));
+  play.addEventListener("click", () => {
+    paused = !paused;
+    play.textContent = paused ? "Play" : "Pause";
+    play.setAttribute("aria-label", paused ? "Resume slideshow" : "Pause slideshow");
+    start();
+  });
+  if (paused) { play.textContent = "Play"; play.setAttribute("aria-label", "Resume slideshow"); }
+  document.addEventListener("visibilitychange", start);
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(items => {
+      visible = items[0].isIntersecting;
+      start();
+    }, { threshold: 0.1 }).observe(gallery);
+  }
+  start();
+});
