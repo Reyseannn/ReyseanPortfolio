@@ -69,7 +69,7 @@ const projects = [
       {src: "/portfolio/assets/agap-signin.png", alt: "AGAP sign in screen", label: "Sign in"},
       {src: "/portfolio/assets/agap-verify.png", alt: "AGAP resident verification form with empty fields", label: "Verification"}
     ],
-    paragraph: "A CRUD-based barangay complaint management system I developed for my college final project. It gives residents a dedicated channel to report community concerns and track their progress while barangay staff review reports, verify residents, and manage resolutions. I worked as the solo developer and team leader, building the HTML, CSS, and JavaScript interface with a C++ backend. Runs locally; source code is available on GitHub.",
+    paragraph: "A C++-powered barangay complaint management system for reporting and tracking community concerns. Residents can submit reports, while barangay staff review complaints, verify accounts, and manage their resolution. Built as my college final project with HTML, CSS, JavaScript, and C++. The app runs locally; its source code is on GitHub.",
     link: "https://github.com/Reyseannn/AGAP"
   },
   // Example:
@@ -132,13 +132,6 @@ document.querySelectorAll(".agap-gallery").forEach((gallery, idx) => {
     }
     current = possible.includes(next) ? next : possible.find(i => i > current) ?? possible[0];
     fallback.hidden = true;
-    // Match the frame to the current screenshot's real dimensions.
-    // This removes top/bottom letterboxing without cropping any UI text.
-    const activeImage = slides[current];
-    if (activeImage?.naturalWidth && activeImage?.naturalHeight) {
-      gallery.querySelector(".agap-screen").style.aspectRatio =
-        `${activeImage.naturalWidth} / ${activeImage.naturalHeight}`;
-    }
     slides.forEach((slide, i) => {
       slide.classList.toggle("is-active", i === current);
       slide.setAttribute("aria-hidden", i === current ? "false" : "true");
