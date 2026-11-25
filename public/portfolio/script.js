@@ -61,7 +61,7 @@ if ("IntersectionObserver" in window) {
 const projects = [
   {
     title: "AGAP — Community Complaint System",
-    image: "/portfolio/assets/agap-real.webp",
+    image: "/portfolio/assets/agap-home.png",
     slides: [
       {src: "/portfolio/assets/agap-home.png", alt: "AGAP landing page", label: "Homepage"},
       {src: "/portfolio/assets/agap-admin.png", alt: "AGAP barangay administration dashboard", label: "Admin dashboard"},
