@@ -59,6 +59,12 @@ if ("IntersectionObserver" in window) {
 // Add the image to public/portfolio/assets, then use /portfolio/assets/filename.jpg.
 // The link field is optional.
 const projects = [
+  {
+    title: "AGAP — Community Complaint System",
+    image: "/portfolio/assets/agap-preview.svg",
+    paragraph: "A CRUD-based barangay complaint management system I developed for my college final project. It gives residents a dedicated channel to report community concerns and track their progress while barangay staff review reports, verify residents, and manage resolutions. I worked as the solo developer and team leader, building the HTML, CSS, and JavaScript interface with a C++ backend. Runs locally; source code is available on GitHub.",
+    link: "https://github.com/Reyseannn/AGAP"
+  },
   // Example:
   // {
   //   title: "My project",
