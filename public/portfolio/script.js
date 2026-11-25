@@ -147,6 +147,13 @@ document.querySelectorAll(".agap-gallery").forEach((gallery, idx) => {
     }
     current = possible.includes(next) ? next : possible.find(i => i > current) ?? possible[0];
     fallback.hidden = true;
+    // Match the frame to the current screenshot's real dimensions.
+    // This removes top/bottom letterboxing without cropping any UI text.
+    const activeImage = slides[current];
+    if (activeImage?.naturalWidth && activeImage?.naturalHeight) {
+      gallery.querySelector(".agap-screen").style.aspectRatio =
+        `${activeImage.naturalWidth} / ${activeImage.naturalHeight}`;
+    }
     slides.forEach((slide, i) => {
       slide.classList.toggle("is-active", i === current);
       slide.setAttribute("aria-hidden", i === current ? "false" : "true");
