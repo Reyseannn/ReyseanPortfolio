@@ -94,10 +94,6 @@ projectList.innerHTML = projects.map((project, projectIndex) => {
       alt="${slide.alt}" loading="eager"
       data-slide="${i}" aria-hidden="${i === 0 ? "false" : "true"}">
   `).join("");
-  const dots = slides.map((slide, i) => `
-    <button type="button" class="agap-dot${i === 0 ? " is-active" : ""}" data-goto="${i}"
-      aria-label="Show ${slide.label}" aria-current="${i === 0 ? "true" : "false"}"></button>
-  `).join("");
   return `
     <article class="project project-extra">
       <div class="project-copy">
@@ -113,13 +109,14 @@ projectList.innerHTML = projects.map((project, projectIndex) => {
           <img class="agap-fallback" src="${project.image}" alt="${project.title} interface preview" loading="lazy">
           ${slidesMarkup}
         </div>
-        <div class="agap-gallery-controls">
-          <button class="agap-arrow" type="button" data-prev aria-label="Previous screenshot">‹</button>
-          <div class="agap-dots" aria-label="Choose screenshot">${dots}</div>
-          <button class="agap-arrow" type="button" data-next aria-label="Next screenshot">›</button>
-          <button class="agap-play" type="button" data-toggle aria-label="Pause slideshow">Pause</button>
+        <div class="agap-gallery-controls" aria-label="Screenshot navigation">
+          <button class="agap-arrow agap-arrow-prev" type="button" data-prev aria-label="Previous AGAP screenshot"><span aria-hidden="true">‹</span></button>
+          <button class="agap-arrow agap-arrow-next" type="button" data-next aria-label="Next AGAP screenshot"><span aria-hidden="true">›</span></button>
         </div>
-        <p class="agap-caption" aria-live="polite">${slides[0].label} · 1/${slides.length}</p>
+        <div class="agap-gallery-footer">
+          <span class="agap-caption" aria-live="polite">${slides[0].label}</span>
+          <span class="agap-count">01 / 0${slides.length}</span>
+        </div>
       </div>
     </article>
   `;
@@ -128,10 +125,9 @@ projectList.innerHTML = projects.map((project, projectIndex) => {
 document.querySelectorAll(".agap-gallery").forEach((gallery, idx) => {
   const entries = projects[idx].slides || [{ src: projects[idx].image, label: "Preview" }];
   const slides = [...gallery.querySelectorAll(".agap-slide")];
-  const dots = [...gallery.querySelectorAll(".agap-dot")];
   const caption = gallery.querySelector(".agap-caption");
   const fallback = gallery.querySelector(".agap-fallback");
-  const play = gallery.querySelector(".agap-play");
+  const count = gallery.querySelector(".agap-count");
   let current = 0;
   let timer = null;
   let paused = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -143,6 +139,7 @@ document.querySelectorAll(".agap-gallery").forEach((gallery, idx) => {
       slides.forEach(slide => slide.classList.remove("is-active"));
       fallback.hidden = false;
       caption.textContent = "AGAP screenshot";
+      count.textContent = "01 / 01";
       return;
     }
     current = possible.includes(next) ? next : possible.find(i => i > current) ?? possible[0];
@@ -158,12 +155,8 @@ document.querySelectorAll(".agap-gallery").forEach((gallery, idx) => {
       slide.classList.toggle("is-active", i === current);
       slide.setAttribute("aria-hidden", i === current ? "false" : "true");
     });
-    dots.forEach((dot,i) => {
-      dot.classList.toggle("is-active", i === current);
-      dot.setAttribute("aria-current", i === current ? "true" : "false");
-      dot.disabled = !available.has(i);
-    });
-    caption.textContent = `${entries[current].label} · ${current + 1}/${entries.length}`;
+    caption.textContent = entries[current].label;
+    count.textContent = `${String(current + 1).padStart(2,"0")} / ${String(entries.length).padStart(2,"0")}`;
   };
   const stop = () => { if(timer !== null) clearInterval(timer); timer = null; };
   const start = () => {
@@ -192,14 +185,6 @@ document.querySelectorAll(".agap-gallery").forEach((gallery, idx) => {
   show(0);
   gallery.querySelector("[data-prev]").addEventListener("click", () => navigate(-1));
   gallery.querySelector("[data-next]").addEventListener("click", () => navigate(1));
-  dots.forEach(dot => dot.addEventListener("click", () => { show(Number(dot.dataset.goto)); start(); }));
-  play.addEventListener("click", () => {
-    paused = !paused;
-    play.textContent = paused ? "Play" : "Pause";
-    play.setAttribute("aria-label", paused ? "Resume slideshow" : "Pause slideshow");
-    start();
-  });
-  if (paused) { play.textContent = "Play"; play.setAttribute("aria-label", "Resume slideshow"); }
   document.addEventListener("visibilitychange", start);
   if ("IntersectionObserver" in window) {
     new IntersectionObserver(items => {
