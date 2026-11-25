@@ -191,3 +191,22 @@ h2 { margin: 0; font-size: 26px; line-height: 1.25; letter-spacing: -.045em; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+
+/* AGAP: sharp original screenshots, five-second slideshow */
+.agap-gallery { overflow: hidden; min-width: 0; background: #101018; }
+.agap-screen { position: relative; width: 100%; aspect-ratio: 1.55; overflow: hidden; background: #e9edf5; }
+.agap-screen img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; }
+.agap-screen .agap-slide { opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility .35s ease; }
+.agap-screen .agap-slide.is-active { opacity: 1; visibility: visible; z-index: 1; }
+.agap-screen .agap-fallback[hidden] { display: none; }
+.agap-gallery-controls { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 11px 12px 2px; }
+.agap-arrow, .agap-play, .agap-dot { cursor: pointer; border: 1px solid rgba(195,165,255,.34); background: #1d1529; color: #efe8f8; }
+.agap-arrow { width: 34px; height: 34px; border-radius: 5px; font-size: 24px; line-height: 1; }
+.agap-play { padding: 7px 9px; border-radius: 4px; font-size: 11px; }
+.agap-dots { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; }
+.agap-dot { width: 9px; height: 9px; padding: 0; border-radius: 50%; background: #554a66; }
+.agap-dot.is-active { background: #f0d45a; border-color: #f0d45a; }
+.agap-dot:disabled { opacity: .22; cursor: default; }
+.agap-arrow:focus-visible, .agap-play:focus-visible, .agap-dot:focus-visible { outline: 2px solid #f0d45a; outline-offset: 3px; }
+.agap-caption { margin: 0; padding: 3px 12px 12px; text-align: center; color: #c7bfd0; font: 10px/1.5 var(--mono); }
+@media (prefers-reduced-motion: reduce) { .agap-screen .agap-slide { transition: none; } }
