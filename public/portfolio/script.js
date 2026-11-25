@@ -109,14 +109,6 @@ projectList.innerHTML = projects.map((project, projectIndex) => {
           <img class="agap-fallback" src="${project.image}" alt="${project.title} interface preview" loading="lazy">
           ${slidesMarkup}
         </div>
-        <div class="agap-gallery-controls" aria-label="Screenshot navigation">
-          <button class="agap-arrow agap-arrow-prev" type="button" data-prev aria-label="Previous AGAP screenshot"><span aria-hidden="true">‹</span></button>
-          <button class="agap-arrow agap-arrow-next" type="button" data-next aria-label="Next AGAP screenshot"><span aria-hidden="true">›</span></button>
-        </div>
-        <div class="agap-gallery-footer">
-          <span class="agap-caption" aria-live="polite">${slides[0].label}</span>
-          <span class="agap-count">01 / 0${slides.length}</span>
-        </div>
       </div>
     </article>
   `;
@@ -125,9 +117,7 @@ projectList.innerHTML = projects.map((project, projectIndex) => {
 document.querySelectorAll(".agap-gallery").forEach((gallery, idx) => {
   const entries = projects[idx].slides || [{ src: projects[idx].image, label: "Preview" }];
   const slides = [...gallery.querySelectorAll(".agap-slide")];
-  const caption = gallery.querySelector(".agap-caption");
   const fallback = gallery.querySelector(".agap-fallback");
-  const count = gallery.querySelector(".agap-count");
   let current = 0;
   let timer = null;
   let paused = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -138,8 +128,6 @@ document.querySelectorAll(".agap-gallery").forEach((gallery, idx) => {
     if (!possible.length) {
       slides.forEach(slide => slide.classList.remove("is-active"));
       fallback.hidden = false;
-      caption.textContent = "AGAP screenshot";
-      count.textContent = "01 / 01";
       return;
     }
     current = possible.includes(next) ? next : possible.find(i => i > current) ?? possible[0];
@@ -155,8 +143,6 @@ document.querySelectorAll(".agap-gallery").forEach((gallery, idx) => {
       slide.classList.toggle("is-active", i === current);
       slide.setAttribute("aria-hidden", i === current ? "false" : "true");
     });
-    caption.textContent = entries[current].label;
-    count.textContent = `${String(current + 1).padStart(2,"0")} / ${String(entries.length).padStart(2,"0")}`;
   };
   const stop = () => { if(timer !== null) clearInterval(timer); timer = null; };
   const start = () => {
@@ -168,13 +154,6 @@ document.querySelectorAll(".agap-gallery").forEach((gallery, idx) => {
       show(possible[(position + 1) % possible.length]);
     }, 5000);
   };
-  const navigate = (direction) => {
-    const possible = [...available].sort((a,b)=>a-b);
-    if (!possible.length) return;
-    const position = possible.indexOf(current);
-    show(possible[(position + direction + possible.length) % possible.length]);
-    start();
-  };
   slides.forEach((slide,i) => {
     slide.addEventListener("load", () => { available.add(i);show(current); start(); });
     slide.addEventListener("error", () => { available.delete(i);show(current); start(); });
@@ -183,8 +162,6 @@ document.querySelectorAll(".agap-gallery").forEach((gallery, idx) => {
     }
   });
   show(0);
-  gallery.querySelector("[data-prev]").addEventListener("click", () => navigate(-1));
-  gallery.querySelector("[data-next]").addEventListener("click", () => navigate(1));
   document.addEventListener("visibilitychange", start);
   if ("IntersectionObserver" in window) {
     new IntersectionObserver(items => {
