@@ -91,7 +91,7 @@ projectList.innerHTML = projects.map((project, projectIndex) => {
   const slides = project.slides || [{ src: project.image, alt: project.title, label: "Preview" }];
   const slidesMarkup = slides.map((slide, i) => `
     <img class="agap-slide${i === 0 ? " is-active" : ""}" src="${slide.src}"
-      alt="${slide.alt}" loading="${i === 0 ? "lazy" : "lazy"}"
+      alt="${slide.alt}" loading="eager"
       data-slide="${i}" aria-hidden="${i === 0 ? "false" : "true"}">
   `).join("");
   const dots = slides.map((slide, i) => `
