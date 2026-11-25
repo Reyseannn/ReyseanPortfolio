@@ -247,3 +247,24 @@ h2 { margin: 0; font-size: 26px; line-height: 1.25; letter-spacing: -.045em; }
 @media (prefers-reduced-motion: reduce) {
   .agap-screen .agap-slide { transition: none; }
 }
+
+/* Focused capability cards and grouped project-backed skills */
+.about-lead { max-width: 69ch; }
+.capability-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.capability { min-width: 0; padding: 22px 19px 23px; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; }
+.capability-index { display: block; margin-bottom: 24px; color: var(--yellow); font: 10px/1.5 var(--mono); letter-spacing: .04em; }
+.capability h3 { margin: 0 0 10px; font-size: 16px; font-weight: 800; line-height: 1.4; letter-spacing: -.02em; }
+.capability p { margin: 0; color: #c7bfd0; font-size: 12px; line-height: 1.8; }
+.skill-groups { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 25px; }
+.skill-group { padding: 18px 0 0; border-top: 1px solid var(--line); }
+.skill-group h3 { margin: 0 0 15px; color: #d7d0df; font: 11px/1.5 var(--mono); font-weight: 500; }
+.skill-group .skill-list { margin: 0; gap: 9px; }
+.skill-group .skill-list span { padding: 10px 13px; font-size: 11px; background: var(--panel); border-radius: 4px; }
+@media(max-width: 760px) {
+  .capability-grid { grid-template-columns: 1fr; gap: 10px; }
+  .capability { padding: 18px 19px; }
+  .capability-index { margin-bottom: 12px; }
+}
+@media(max-width: 560px) {
+  .skill-groups { grid-template-columns: 1fr; gap: 20px; }
+}
