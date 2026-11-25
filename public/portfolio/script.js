@@ -63,11 +63,11 @@ const projects = [
     title: "AGAP — Community Complaint System",
     image: "/portfolio/assets/agap-real.webp",
     slides: [
-      {src: "/portfolio/assets/agap-home.webp", alt: "AGAP landing page", label: "Homepage"},
-      {src: "/portfolio/assets/agap-admin.webp", alt: "AGAP barangay administration dashboard", label: "Admin dashboard"},
-      {src: "/portfolio/assets/agap-features.webp", alt: "AGAP process and feature overview", label: "How it works"},
-      {src: "/portfolio/assets/agap-signin.webp", alt: "AGAP sign in screen", label: "Sign in"},
-      {src: "/portfolio/assets/agap-verify.webp", alt: "AGAP resident verification form with empty fields", label: "Verification"}
+      {src: "/portfolio/assets/agap-home.png", alt: "AGAP landing page", label: "Homepage"},
+      {src: "/portfolio/assets/agap-admin.png", alt: "AGAP barangay administration dashboard", label: "Admin dashboard"},
+      {src: "/portfolio/assets/agap-features.png", alt: "AGAP process and feature overview", label: "How it works"},
+      {src: "/portfolio/assets/agap-signin.png", alt: "AGAP sign in screen", label: "Sign in"},
+      {src: "/portfolio/assets/agap-verify.png", alt: "AGAP resident verification form with empty fields", label: "Verification"}
     ],
     paragraph: "A CRUD-based barangay complaint management system I developed for my college final project. It gives residents a dedicated channel to report community concerns and track their progress while barangay staff review reports, verify residents, and manage resolutions. I worked as the solo developer and team leader, building the HTML, CSS, and JavaScript interface with a C++ backend. Runs locally; source code is available on GitHub.",
     link: "https://github.com/Reyseannn/AGAP"
